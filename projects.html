@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Projects Portfolio</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f7fb;
+      color:#333;
+    }
+
+    header{
+      background:linear-gradient(135deg,#4f46e5,#7c3aed);
+      color:white;
+      text-align:center;
+      padding:50px 20px;
+    }
+
+    header h1{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    header p{
+      font-size:18px;
+    }
+
+    .projects{
+      width:90%;
+      margin:50px auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card h2{
+      color:#4f46e5;
+      margin-bottom:12px;
+    }
+
+    .card p{
+      font-size:15px;
+      line-height:1.7;
+      margin-bottom:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      background:#4f46e5;
+      color:white;
+      padding:10px 20px;
+      border-radius:8px;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#372fcf;
+    }
+
+    footer{
+      background:#111827;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>My Projects</h1>
+    <p>Explore my web development and innovative projects</p>
+  </header>
+
+  <section class="projects">
+
+    <!-- Project 1 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/400x220" alt="Resume Builder">
+
+      <div class="card-content">
+        <h2>Online Resume Builder</h2>
+
+        <p>
+          An online resume builder website that helps users create professional
+          resumes easily with customizable templates, live preview, and download options.
+          Developed using HTML, CSS, JavaScript, PHP, and MySQL.
+        </p>
+
+        <a href="#" class="btn">View Project</a>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/400x220" alt="Music Recommendation">
+
+      <div class="card-content">
+        <h2>Emotion Based Music Recommendation System</h2>
+
+        <p>
+          A smart music recommendation system that detects user emotions and
+          suggests suitable songs based on mood. Built using Machine Learning,
+          Python, and web technologies.
+        </p>
+
+        <a href="#" class="btn">View Project</a>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2026 My Portfolio | Designed by Rupali</p>
+  </footer>
+
+</body>
+</html>

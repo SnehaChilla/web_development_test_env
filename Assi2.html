@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS Activities Profile</title>
+
+    <!-- Bootstrap 5 CSS CDN -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons CDN -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    >
+
+    <style>
+        /* =====================================
+           General Page Styling
+        ===================================== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #eaf2ff);
+            color: #2c3e50;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+
+        /* =====================================
+           Card Section Styling
+        ===================================== */
+        .profile-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 35px;
+            border: 1px solid #e6ebf2;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* =====================================
+           Section Heading
+        ===================================== */
+        .section-title {
+            display: inline-block;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0d6efd;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #0d6efd;
+        }
+
+        .section-title i {
+            margin-right: 8px;
+        }
+
+        /* =====================================
+           Table Styling
+        ===================================== */
+        .table {
+            margin-bottom: 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table thead th {
+            background: linear-gradient(90deg, #0d6efd, #0b5ed7);
+            color: #ffffff;
+            text-align: center;
+            font-weight: 600;
+            vertical-align: middle;
+            padding: 14px;
+            border: none;
+        }
+
+        .table tbody td {
+            padding: 12px;
+            vertical-align: middle;
+        }
+
+        /* Hover Effect */
+        .table-hover tbody tr:hover {
+            background-color: #eaf3ff;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Alternating Row Colors */
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f8fbff;
+        }
+
+        /* List Styling */
+        .activity-list {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+
+        .activity-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+            color: #495057;
+        }
+
+        /* =====================================
+           Responsive Typography
+        ===================================== */
+        @media (max-width: 768px) {
+            .profile-card {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .table {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.1rem;
+            }
+
+            .table {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="container main-container">
+
+        <!-- Page Header -->
+        <header class="text-center mb-5">
+            <h1 class="fw-bold text-primary">Academic & Extension Activities</h1>
+            <p class="text-muted">
+                NSS Contributions, Lectures, and ICT-Based Student Work
+            </p>
+        </header>
+
+        <!-- =====================================
+             Section 1: NSS Volunteers Achievements
+        ====================================== -->
+        <section class="profile-card">
+            <h2 class="section-title">
+                <i class="bi bi-people-fill"></i>
+                NSS Volunteers Achievements Under My Guidance
+            </h2>
+
+            <ul class="activity-list">
+                <li>Students received awards and certificates for outstanding performance in NSS camps and social service activities.</li>
+                <li>Volunteers actively participated in cleanliness drives, tree plantation, blood donation, and awareness programs.</li>
+                <li>Students represented the college at university and state-level NSS events.</li>
+                <li>Several volunteers were recognized for leadership and community development initiatives.</li>
+            </ul>
+        </section>
+
+        <!-- =====================================
+             Section 2: NSS Camps and Programmes
+        ====================================== -->
+        <section class="profile-card">
+            <h2 class="section-title">
+                <i class="bi bi-flag-fill"></i>
+                18. Attended Various Camps Related to NSS
+            </h2>
+
+            <ul class="activity-list">
+                <li>Special Winter Camps</li>
+                <li>Adventure Camps</li>
+                <li>National Integration Camps</li>
+                <li>Leadership Training Camps</li>
+            </ul>
+
+            <hr class="my-4">
+
+            <h2 class="section-title">
+                <i class="bi bi-calendar-event-fill"></i>
+                19. Participated in Various Programmes Related to NSS
+            </h2>
+
+            <ul class="activity-list">
+                <li>Swachh Bharat Abhiyan</li>
+                <li>Blood Donation Camps</li>
+                <li>Health Check-up Camps</li>
+                <li>Voter Awareness Programmes</li>
+            </ul>
+        </section>
+
+        <!-- =====================================
+             Section 3: Lectures and ICT Work
+        ====================================== -->
+        <section class="profile-card">
+            <h2 class="section-title">
+                <i class="bi bi-mic-fill"></i>
+                20. Resource Person / Guest Lectures / Extension Lectures
+            </h2>
+
+            <ul class="activity-list">
+                <li>Delivered lectures on Personality Development and Career Guidance.</li>
+                <li>Conducted sessions on Digital Literacy and Social Responsibility.</li>
+                <li>Participated as a guest speaker in seminars and workshops.</li>
+            </ul>
+
+            <hr class="my-4">
+
+            <h2 class="section-title">
+                <i class="bi bi-laptop-fill"></i>
+                21. ICT Based Work for the Student
+            </h2>
+
+            <ul class="activity-list">
+                <li>Created digital study materials and e-content.</li>
+                <li>Conducted online quizzes and assessments.</li>
+                <li>Used Google Classroom and learning management systems.</li>
+                <li>Prepared video lectures and presentations for students.</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-muted py-3">
+            <small>&copy; 2026 Academic Profile. All Rights Reserved.</small>
+        </footer>
+
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
