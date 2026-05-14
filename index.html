@@ -1,55 +1,817 @@
+# Complete Student Portfolio Website (Single index.html File)
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+
+    :root{
+      --primary:#3B7597;
+      --primary-dark:#2f607c;
+      --bg:#f5f8fb;
+      --sidebar-width:280px;
+      --topbar-height:70px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:var(--bg);
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    .top-navbar{
+      height:var(--topbar-height);
+      background:linear-gradient(90deg,var(--primary),var(--primary-dark));
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      z-index:1050;
+    }
+
+    .navbar-brand{
+      color:#fff !important;
+      font-weight:700;
+      font-size:1.4rem;
+      letter-spacing:1px;
+    }
+
+    .menu-toggle{
+      border:none;
+      background:transparent;
+      color:white;
+      font-size:1.6rem;
+    }
+
+    /* ================= SIDEBAR ================= */
+
+    .sidebar{
+      position:fixed;
+      top:var(--topbar-height);
+      left:0;
+      width:var(--sidebar-width);
+      height:calc(100vh - var(--topbar-height));
+      background:#fff;
+      overflow-y:auto;
+      border-right:1px solid #e8edf3;
+      box-shadow:4px 0 20px rgba(0,0,0,0.05);
+      transition:0.3s ease;
+      z-index:1040;
+    }
+
+    .profile-card{
+      margin:20px;
+      padding:25px 20px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      border-radius:22px;
+      color:white;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(59,117,151,0.3);
+    }
+
+    .profile-avatar{
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      margin:auto;
+      margin-bottom:15px;
+      background:rgba(255,255,255,0.2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2.5rem;
+      border:3px solid rgba(255,255,255,0.4);
+    }
+
+    .profile-card h5{
+      font-weight:600;
+      margin-bottom:5px;
+    }
+
+    .profile-card p{
+      font-size:0.9rem;
+      opacity:0.9;
+    }
+
+    .sidebar-menu{
+      padding:0 15px 20px;
+    }
+
+    .sidebar-menu .nav-link{
+      padding:14px 18px;
+      border-radius:14px;
+      color:#495057;
+      font-weight:500;
+      margin-bottom:8px;
+      display:flex;
+      align-items:center;
+      transition:0.3s;
+    }
+
+    .sidebar-menu .nav-link i{
+      margin-right:12px;
+      font-size:1.1rem;
+    }
+
+    .sidebar-menu .nav-link:hover{
+      background:rgba(59,117,151,0.1);
+      color:var(--primary);
+      transform:translateX(5px);
+    }
+
+    .sidebar-menu .nav-link.active{
+      background:var(--primary);
+      color:#fff;
+      box-shadow:0 8px 18px rgba(59,117,151,0.25);
+    }
+
+    /* ================= MAIN CONTENT ================= */
+
+    .main-content{
+      margin-left:var(--sidebar-width);
+      margin-top:var(--topbar-height);
+      padding:30px;
+      min-height:100vh;
+    }
+
+    /* ================= HERO SECTION ================= */
+
+    .hero-card{
+      background:#fff;
+      border-radius:25px;
+      padding:50px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom:30px;
+    }
+
+    .hero-badge{
+      display:inline-block;
+      background:rgba(59,117,151,0.1);
+      color:var(--primary);
+      padding:8px 18px;
+      border-radius:50px;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+
+    .hero-title{
+      font-size:2.7rem;
+      font-weight:700;
+      margin-bottom:15px;
+      color:#212529;
+    }
+
+    .hero-title span{
+      color:var(--primary);
+    }
+
+    .hero-text{
+      color:#6c757d;
+      line-height:1.9;
+      font-size:1rem;
+      max-width:800px;
+    }
+
+    /* ================= INFO CARDS ================= */
+
+    .info-card{
+      background:#fff;
+      border:none;
+      border-radius:22px;
+      padding:30px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.05);
+      transition:0.3s ease;
+      height:100%;
+    }
+
+    .info-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 14px 35px rgba(0,0,0,0.08);
+    }
+
+    .info-icon{
+      width:70px;
+      height:70px;
+      border-radius:18px;
+      background:rgba(59,117,151,0.1);
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.8rem;
+      margin-bottom:20px;
+    }
+
+    /* ================= TABLE SECTION ================= */
+
+    .section-title{
+      font-size:2rem;
+      font-weight:700;
+      color:#3B7597;
+      margin-bottom:25px;
+    }
+
+    .card-box{
+      background:#fff;
+      padding:25px;
+      border-radius:22px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.05);
+      margin-bottom:40px;
+      transition:0.3s;
+    }
+
+    .card-box:hover{
+      transform:translateY(-5px);
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .table thead{
+      background:#3B7597;
+      color:#fff;
+    }
+
+    .table th{
+      font-weight:600;
+      text-align:center;
+      vertical-align:middle;
+    }
+
+    .table td{
+      vertical-align:middle;
+    }
+
+    .table tbody tr:hover{
+      background:#f3f8fc;
+    }
+
+    .table td[contenteditable="true"]{
+      outline:none;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .form-control{
+      border-radius:14px;
+      padding:12px 15px;
+      border:1px solid #dce3ea;
+    }
+
+    .btn-primary{
+      background:#3B7597;
+      border:none;
+      border-radius:12px;
+      padding:12px 25px;
+    }
+
+    .btn-primary:hover{
+      background:#2f607c;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer{
+      margin-top:35px;
+      background:linear-gradient(90deg,var(--primary),var(--primary-dark));
+      padding:18px;
+      border-radius:18px;
+      text-align:center;
+      color:#fff;
+      box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:991px){
+
+      .sidebar{
+        left:-100%;
+      }
+
+      .sidebar.show{
+        left:0;
+      }
+
+      .main-content{
+        margin-left:0;
+      }
+
+    }
+
+    @media(max-width:576px){
+
+      .hero-card{
+        padding:30px 20px;
+      }
+
+      .hero-title{
+        font-size:2rem;
+      }
+
+      .main-content{
+        padding:20px;
+      }
+
+    }
+
+  </style>
 </head>
+
 <body>
-    <nav>
-        <h2>Brooklyn</h2>
-        <div>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Portfolio</a>
-            <a href="#">Blog</a>
-            <button>Contact</button>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar top-navbar fixed-top px-3">
+
+  <button class="menu-toggle d-lg-none" id="menuToggle">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <a class="navbar-brand mx-auto mx-lg-0" href="#">
+    PORTFOLIO
+  </a>
+
+</nav>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar" id="sidebar">
+
+  <div class="profile-card">
+
+    <div class="profile-avatar">
+      <i class="bi bi-person-fill"></i>
+    </div>
+
+    <h5>Bhumi Atote</h5>
+
+    <p>
+      CSE (Artificial Intelligence and Data Science)
+    </p>
+
+  </div>
+
+  <nav class="sidebar-menu nav flex-column">
+
+    <a href="#home" class="nav-link active">
+      <i class="bi bi-house-door-fill"></i>
+      Home
+    </a>
+
+    <a href="#orientation" class="nav-link">
+      <i class="bi bi-book-half"></i>
+      Orientation Courses
+    </a>
+
+    <a href="#fdp" class="nav-link">
+      <i class="bi bi-easel-fill"></i>
+      FDP & Training
+    </a>
+
+    <a href="#patents" class="nav-link">
+      <i class="bi bi-shield-check"></i>
+      Patents
+    </a>
+
+    <a href="#awards" class="nav-link">
+      <i class="bi bi-award-fill"></i>
+      Awards
+    </a>
+
+    <a href="#contact" class="nav-link">
+      <i class="bi bi-envelope-fill"></i>
+      Contact
+    </a>
+
+  </nav>
+
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="main-content">
+
+  <!-- HERO -->
+
+  <section class="hero-card" id="home">
+
+    <span class="hero-badge">
+      Welcome to My Portfolio
+    </span>
+
+    <h1 class="hero-title">
+      Building Innovative <span>AI & DS</span> Solutions
+    </h1>
+
+    <p class="hero-text">
+      I am a student from the Department of Computer Science and Engineering specializing in Artificial Intelligence and Data Science. This portfolio showcases my orientation programs, FDP training, patents, awards, and academic achievements in a clean and professional dashboard layout.
+    </p>
+
+  </section>
+
+  <!-- CARDS -->
+
+  <div class="row g-4 mb-5">
+
+    <div class="col-md-6 col-xl-3">
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="bi bi-book-half"></i>
         </div>
-    </nav>
-    <div class="main">
-        <div class="left">
-            <h1>Hello, I'm Suhani Nalwar</h1>
-            <p>
-                I am a UI/UX Designer and Developer based in Solapur, Maharashtra.
-            </p>
-            <button>Say Hello</button>
-            <br><br>
-            <div class="stats">
+        <h5>Orientation Courses</h5>
+        <p>Academic orientation and refresher course details.</p>
+      </div>
+    </div>
 
-                <div class="box">
-                    <h2>15 Y.</h2>
-                    <p>Experience</p>
-                </div>
-
-                <div class="box">
-                    <h2>250+</h2>
-                    <p>Projects</p>
-                </div>
-
-                <div class="box">
-                    <h2>58</h2>
-                    <p>Clients</p>
-                </div>
-
-            </div>
-
+    <div class="col-md-6 col-xl-3">
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="bi bi-easel-fill"></i>
         </div>
+        <h5>FDP & Training</h5>
+        <p>Faculty development programs and workshops attended.</p>
+      </div>
+    </div>
 
-        <div class="right">
-            <img src=>
+    <div class="col-md-6 col-xl-3">
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="bi bi-shield-check"></i>
         </div>
+        <h5>Patents</h5>
+        <p>Patent publications and innovative research projects.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="bi bi-award-fill"></i>
+        </div>
+        <h5>Awards</h5>
+        <p>Achievements and recognition received in academics.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ORIENTATION -->
+
+  <section id="orientation">
+
+    <h2 class="section-title">
+      Orientation / Refresher Course
+    </h2>
+
+    <div class="card-box">
+
+      <div class="table-responsive">
+
+        <table class="table table-bordered table-striped align-middle">
+
+          <thead>
+            <tr>
+              <th>Sr.No.</th>
+              <th>Orientation / Refresher</th>
+              <th>Year</th>
+              <th>Duration</th>
+              <th>Place</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td contenteditable="true">1</td>
+              <td contenteditable="true">Faculty Orientation</td>
+              <td contenteditable="true">2025</td>
+              <td contenteditable="true">7 Days</td>
+              <td contenteditable="true">Pune</td>
+            </tr>
+
+            <tr>
+              <td contenteditable="true">2</td>
+              <td contenteditable="true">Refresher Course</td>
+              <td contenteditable="true">2026</td>
+              <td contenteditable="true">5 Days</td>
+              <td contenteditable="true">Mumbai</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
 
     </div>
 
-</body>
+  </section>
 
+  <!-- FDP -->
+
+  <section id="fdp">
+
+    <h2 class="section-title">
+      FDP & Training Programs
+    </h2>
+
+    <div class="card-box">
+
+      <div class="table-responsive">
+
+        <table class="table table-bordered table-striped align-middle">
+
+          <thead>
+            <tr>
+              <th>Sr.No.</th>
+              <th>Program</th>
+              <th>Year</th>
+              <th>Duration</th>
+              <th>Place</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td contenteditable="true">1</td>
+              <td contenteditable="true">AI Workshop</td>
+              <td contenteditable="true">2025</td>
+              <td contenteditable="true">3 Days</td>
+              <td contenteditable="true">Solapur</td>
+            </tr>
+
+            <tr>
+              <td contenteditable="true">2</td>
+              <td contenteditable="true">Cyber Security Training</td>
+              <td contenteditable="true">2026</td>
+              <td contenteditable="true">2 Days</td>
+              <td contenteditable="true">Pune</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PATENTS -->
+
+  <section id="patents">
+
+    <h2 class="section-title">
+      Patents
+    </h2>
+
+    <div class="card-box">
+
+      <div class="table-responsive">
+
+        <table class="table table-bordered table-striped align-middle">
+
+          <thead>
+            <tr>
+              <th>Sr.No.</th>
+              <th>Title</th>
+              <th>Design No.</th>
+              <th>Agency</th>
+              <th>Issue Date</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td contenteditable="true">1</td>
+              <td contenteditable="true">Smart Learning System</td>
+              <td contenteditable="true">D-2025-101</td>
+              <td contenteditable="true">IPO</td>
+              <td contenteditable="true">10/05/2025</td>
+            </tr>
+
+            <tr>
+              <td contenteditable="true">2</td>
+              <td contenteditable="true">AI Attendance Tracker</td>
+              <td contenteditable="true">D-2026-205</td>
+              <td contenteditable="true">WIPO</td>
+              <td contenteditable="true">15/01/2026</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- AWARDS -->
+
+  <section id="awards">
+
+    <h2 class="section-title">
+      Awards & Achievements
+    </h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="card-box h-100 text-center">
+
+          <i class="bi bi-award-fill"
+             style="font-size:55px;color:#3B7597;">
+          </i>
+
+          <h5 class="mt-3 fw-bold">
+            Best Project Award
+          </h5>
+
+          <p class="text-muted">
+            Received for AI Based Smart Education System in 2025.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="card-box h-100 text-center">
+
+          <i class="bi bi-trophy-fill"
+             style="font-size:55px;color:#3B7597;">
+          </i>
+
+          <h5 class="mt-3 fw-bold">
+            Research Excellence
+          </h5>
+
+          <p class="text-muted">
+            Awarded for innovation and research contribution.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+
+        <div class="card-box h-100 text-center">
+
+          <i class="bi bi-stars"
+             style="font-size:55px;color:#3B7597;">
+          </i>
+
+          <h5 class="mt-3 fw-bold">
+            Academic Topper
+          </h5>
+
+          <p class="text-muted">
+            Recognized for excellent academic performance.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="mt-5">
+
+    <h2 class="section-title">
+      Contact Me
+    </h2>
+
+    <div class="card-box">
+
+      <div class="row g-4">
+
+        <div class="col-lg-6">
+
+          <input type="text"
+                 class="form-control mb-3"
+                 placeholder="Your Name">
+
+          <input type="email"
+                 class="form-control mb-3"
+                 placeholder="Your Email">
+
+          <input type="text"
+                 class="form-control mb-3"
+                 placeholder="Subject">
+
+          <textarea class="form-control mb-3"
+                    rows="5"
+                    placeholder="Message"></textarea>
+
+          <button class="btn btn-primary px-4">
+            Send Message
+          </button>
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <div class="p-4 rounded-4"
+               style="background:#f5f8fb;">
+
+            <h5 class="fw-bold mb-3">
+              Contact Information
+            </h5>
+
+            <p>
+              <i class="bi bi-envelope-fill text-primary"></i>
+              bhumi@example.com
+            </p>
+
+            <p>
+              <i class="bi bi-telephone-fill text-primary"></i>
+              +91 9876543210
+            </p>
+
+            <p>
+              <i class="bi bi-geo-alt-fill text-primary"></i>
+              Solapur, Maharashtra
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    © 2026 Academic Portfolio | Designed with Bootstrap 5
+  </footer>
+
+</main>
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+  const menuToggle = document.getElementById("menuToggle");
+  const sidebar = document.getElementById("sidebar");
+
+  menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("show");
+  });
+
+  document.addEventListener("click", function(e){
+
+    if(
+      window.innerWidth < 992 &&
+      !sidebar.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ){
+      sidebar.classList.remove("show");
+    }
+
+  });
+
+</script>
+
+</body>
 </html>
+

@@ -1,0 +1,66 @@
+/* Sidebar Styling */
+
+.sidebar{
+    width:280px;
+    height:100vh;
+    position:fixed;
+    top:70px;
+    left:0;
+    overflow-y:auto;
+    background:#fff;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    padding:20px;
+}
+
+.sidebar-menu .nav-link{
+    color:#333;
+    padding:12px 15px;
+    border-radius:12px;
+    margin-bottom:8px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.sidebar-menu .nav-link:hover,
+.sidebar-menu .nav-link.active{
+    background:#3B7597;
+    color:#fff;
+}
+
+.submenu{
+    padding-left:15px;
+}
+
+.sub-link{
+    font-size:14px;
+    padding:10px 15px;
+    color:#555;
+}
+
+.sub-link:hover{
+    background:#edf5fa;
+    color:#3B7597;
+}
+
+.nested-menu{
+    padding-left:20px;
+}
+
+.nested-link{
+    font-size:13px;
+    color:#666;
+    padding:8px 15px;
+}
+
+.nested-link:hover{
+    color:#3B7597;
+}
+
+.sidebar::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:#3B7597;
+    border-radius:10px;
+}
