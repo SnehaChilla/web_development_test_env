@@ -1,0 +1,47 @@
+body{
+    font-family: Arial;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+}
+
+button{
+    background: purple;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+.main{
+    display: flex;
+    padding: 40px;
+}
+
+.left{
+    width: 50%;
+}
+
+.right img{
+    width: 300px;
+}
+
+/* Boxes */
+.stats{
+    display: flex;
+    gap: 10px;
+}
+
+.box{
+    border: 1px solid lightgray;
+    padding: 20px;
+    text-align: center;
+}

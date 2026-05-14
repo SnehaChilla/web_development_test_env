@@ -1,158 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Contact Page</title>
 
-    
-    <title>Contact Page</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        body {
-            background: #f4f7fc;
-            font-family: Arial, sans-serif;
-        }
-
-        .contact-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 50px 0;
-        }
-
-        .contact-box {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-title {
-            font-size: 40px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #222;
-        }
-
-        .contact-text {
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .form-control {
-            padding: 12px;
-            border-radius: 10px;
-        }
-
-        .btn-custom {
-            background: #0d6efd;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            transition: 0.3s;
-        }
-
-        .btn-custom:hover {
-            background: #084298;
-            color: white;
-            transform: scale(1.03);
-        }
-
-        .contact-info i {
-            color: #0d6efd;
-            margin-right: 10px;
-        }
-
-        @media(max-width:768px) {
-            .contact-title {
-                font-size: 30px;
-            }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="row justify-content-center">
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Aarav Dev</a>
 
-                <div class="col-lg-8">
-                    <div class="contact-box">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                        <h2 class="contact-title text-center">Contact Us</h2>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
 
-                        <p class="contact-text text-center">
-                            We'd love to hear from you. Send your message anytime.
-                        </p>
 
-                        <!-- Contact Form -->
-                        <form>
+<!-- Contact Section Start -->
+<section class="contact-section py-5">
+    <div class="container">
 
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control"
-                                        placeholder="Your Name">
-                                </div>
+        <!-- Heading -->
+        <div class="text-center mb-5 fade-in">
+            <h1 class="section-title">Get In Touch</h1>
+            <p class="section-subtitle">
+                Feel free to contact me for projects, collaborations or just a friendly hello.
+            </p>
+        </div>
 
-                                <div class="col-md-6 mb-3">
-                                    <input type="email" class="form-control"
-                                        placeholder="Your Email">
-                                </div>
+        <div class="row g-4">
+
+            <!-- Contact Form -->
+            <div class="col-lg-7 fade-in">
+                <div class="glass-card p-4">
+                    <h3 class="mb-4">Send Message</h3>
+
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control custom-input" placeholder="Your Name">
                             </div>
 
-                            <div class="mb-3">
-                                <input type="text" class="form-control"
-                                    placeholder="Subject">
+                            <div class="col-md-6">
+                                <input type="email" class="form-control custom-input" placeholder="Your Email">
                             </div>
 
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="5"
-                                    placeholder="Your Message"></textarea>
+                            <div class="col-12">
+                                <input type="text" class="form-control custom-input" placeholder="Subject">
                             </div>
 
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-custom">
-                                    Send Message
+                            <div class="col-12">
+                                <textarea rows="6" class="form-control custom-input" placeholder="Your Message"></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <button class="btn send-btn w-100">
+                                    Send Message <i class="bi bi-send-fill ms-2"></i>
                                 </button>
                             </div>
-
-                        </form>
-
-                        <!-- Contact Info -->
-                        <div class="contact-info text-center mt-4">
-
-                            <p>
-                                <i class="fa-solid fa-envelope"></i>
-                                info@example.com
-                            </p>
-
-                            <p>
-                                <i class="fa-solid fa-phone"></i>
-                                +91 9876543210
-                            </p>
-
-                            <p>
-                                <i class="fa-solid fa-location-dot"></i>
-                                Solapur, Maharashtra, India
-                            </p>
-
                         </div>
-
-                    </div>
+                    </form>
                 </div>
-
             </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-5 fade-in">
+                <div class="row g-4">
+
+                    <div class="col-md-6 col-lg-12">
+                        <div class="info-card">
+                            <i class="bi bi-telephone-fill icon"></i>
+                            <h5>Phone</h5>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-12">
+                        <div class="info-card">
+                            <i class="bi bi-envelope-fill icon"></i>
+                            <h5>Email</h5>
+                            <p>hello@aaravdev.com</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-12">
+                        <div class="info-card">
+                            <i class="bi bi-geo-alt-fill icon"></i>
+                            <h5>Location</h5>
+                            <p>Pune, Maharashtra, India</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+<!-- Contact Section End -->
+
+
+<!-- Footer Start -->
+<footer class="footer text-center py-4">
+    <div class="container">
+        <div class="social-icons mb-3">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-github"></i></a>
+        </div>
+
+        <p class="mb-0">© 2026 Aarav Dev | All Rights Reserved</p>
+    </div>
+</footer>
+<!-- Footer End -->
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>
