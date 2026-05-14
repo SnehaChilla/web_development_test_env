@@ -1,498 +1,267 @@
-# Faculty Profile Management Website (HTML + Bootstrap 5)
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Faculty Profile Management System</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Faculty Portfolio</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-    <style>
-        :root {
-            --primary: #3B7597;
-            --primary-dark: #2f627f;
-            --light-bg: #f5f7fb;
-            --card-bg: #ffffff;
-            --text-dark: #1f2937;
-            --text-muted: #6b7280;
-            --border: #e5e7eb;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--light-bg);
-            color: var(--text-dark);
-        }
-
-        /* Navbar */
-        .top-navbar {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-
-        .navbar-brand,
-        .nav-link,
-        .navbar .btn {
-            color: #fff !important;
-        }
-
-        .dark-toggle {
-            border: 1px solid rgba(255,255,255,0.4);
-            border-radius: 30px;
-        }
-
-        /* Layout */
-        .wrapper {
-            display: flex;
-            min-height: calc(100vh - 70px);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 280px;
-            background: #fff;
-            border-right: 1px solid var(--border);
-            padding: 1.25rem;
-            overflow-y: auto;
-            position: sticky;
-            top: 70px;
-            height: calc(100vh - 70px);
-        }
-
-        .sidebar .nav-link {
-            color: var(--text-dark) !important;
-            border-radius: 10px;
-            padding: 10px 14px;
-            margin-bottom: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar .nav-link:hover,
-        .sidebar .nav-link.active {
-            background: rgba(59, 117, 151, 0.12);
-            color: var(--primary) !important;
-            transform: translateX(4px);
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding: 2rem;
-        }
-
-        /* Cards */
-        .custom-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .custom-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-        }
-
-        .stat-icon {
-            width: 52px;
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 14px;
-            background: rgba(59, 117, 151, 0.12);
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-
-        /* Profile Card */
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #e8f1f6;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 6px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #d1d5db;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -1.18rem;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--primary);
-        }
-
-        /* Tables */
-        .table thead th {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-        }
-
-        .table-hover tbody tr:hover {
-            background: #f0f8ff;
-        }
-
-        /* Gallery */
-        .gallery-item {
-            height: 120px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #dbeafe, #eff6ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 2rem;
-        }
-
-        /* Footer */
-        .site-footer {
-            background: var(--primary);
-            color: #fff;
-            border-radius: 18px;
-            padding: 1rem 1.5rem;
-            margin-top: 2rem;
-        }
-
-        /* Dark Mode */
-        body.dark-mode {
-            background: #111827;
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .sidebar,
-        body.dark-mode .custom-card {
-            background: #1f2937;
-            border-color: #374151;
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .sidebar .nav-link {
-            color: #f3f4f6 !important;
-        }
-
-        body.dark-mode .table {
-            color: #f3f4f6;
-        }
-
-        body.dark-mode .table tbody tr:hover {
-            background: #374151;
-        }
-
-        /* Responsive */
-        @media (max-width: 991.98px) {
-            .wrapper {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%; 
-                height: auto;
-                position: static;
-            }
-
-            .main-content {
-                padding: 1rem;
-            }
-        }
-    </style>
+<!-- External CSS -->
+<link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg top-navbar sticky-top">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="bi bi-mortarboard-fill me-2"></i>Faculty Profile System
-            </a>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+<div class="container-fluid">
 
-            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<button class="btn btn-light d-lg-none me-3" onclick="toggleSidebar()">
+<i class="bi bi-list"></i>
+</button>
 
-            <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item me-3 text-white">
-                        <i class="bi bi-bell"></i>
-                    </li>
-                    <li class="nav-item me-3 text-white">
-                        <i class="bi bi-person-circle"></i> Prof. John Doe
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn dark-toggle btn-sm" onclick="toggleDarkMode()">
-                            <i class="bi bi-moon-stars"></i>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<a class="navbar-brand" href="#">Faculty<span>Portfolio</span></a>
 
-    <div class="wrapper">
+<div class="ms-auto d-flex align-items-center gap-3">
+<button class="btn btn-light" onclick="toggleDarkMode()">
+<i class="bi bi-moon-stars"></i>
+</button>
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <h6 class="text-uppercase text-muted mb-3">Navigation</h6>
-            <nav class="nav flex-column">
-                <a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i>Home Dashboard</a>
-                <a class="nav-link" href="#"><i class="bi bi-mortarboard me-2"></i>Educational Qualification</a>
-                <a class="nav-link" href="#"><i class="bi bi-award me-2"></i>Other Qualification</a>
-                <a class="nav-link" href="#"><i class="bi bi-briefcase me-2"></i>Teaching Experience</a>
-                <a class="nav-link" href="#"><i class="bi bi-book me-2"></i>Orientation Courses</a>
-                <a class="nav-link" href="#"><i class="bi bi-laptop me-2"></i>FDP & Training</a>
-                <a class="nav-link" href="#"><i class="bi bi-diagram-3 me-2"></i>Organized FDP</a>
-                <a class="nav-link" href="#"><i class="bi bi-lightbulb me-2"></i>Research Projects</a>
-                <a class="nav-link" href="#"><i class="bi bi-file-earmark-text me-2"></i>Patents</a>
-                <a class="nav-link" href="#"><i class="bi bi-journal-text me-2"></i>Publications</a>
-                <a class="nav-link" href="#"><i class="bi bi-newspaper me-2"></i>Newspaper Articles</a>
-                <a class="nav-link" href="#"><i class="bi bi-people me-2"></i>Conferences</a>
-                <a class="nav-link" href="#"><i class="bi bi-trophy me-2"></i>Awards</a>
-                <a class="nav-link" href="#"><i class="bi bi-heart me-2"></i>NSS Activities</a>
-                <a class="nav-link" href="#"><i class="bi bi-mic me-2"></i>Guest Lectures</a>
-                <a class="nav-link" href="#"><i class="bi bi-pc-display me-2"></i>ICT Work</a>
-                <a class="nav-link" href="#"><i class="bi bi-person-badge me-2"></i>Memberships</a>
-                <a class="nav-link" href="#"><i class="bi bi-clipboard-check me-2"></i>Exam Duties</a>
-                <a class="nav-link" href="#"><i class="bi bi-stars me-2"></i>Co-Curricular</a>
-            </nav>
-        </aside>
+<img src="https://i.pravatar.cc/40?img=12" class="rounded-circle" alt="profile">
+</div>
 
-        <!-- Main Content -->
-        <main class="main-content">
+</div>
+</nav>
 
-            <!-- Page Header -->
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
-                <div>
-                    <h2 class="fw-bold mb-1">Dashboard</h2>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                    </nav>
-                </div>
-                <div class="mt-3 mt-md-0 d-flex gap-2">
-                    <button class="btn btn-outline-primary"><i class="bi bi-file-earmark-pdf"></i> PDF</button>
-                    <button class="btn btn-outline-success"><i class="bi bi-file-earmark-excel"></i> Excel</button>
-                    <button class="btn btn-primary"><i class="bi bi-plus-circle"></i> Add New</button>
-                </div>
-            </div>
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
 
-            <!-- Search and Filter -->
-            <div class="custom-card p-3 mb-4">
-                <div class="row g-3">
-                    <div class="col-md-8">
-                        <input type="text" class="form-control" placeholder="Search records...">
-                    </div>
-                    <div class="col-md-4">
-                        <select class="form-select">
-                            <option>Filter by Category</option>
-                            <option>Publications</option>
-                            <option>Patents</option>
-                            <option>Awards</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+<a href="#"><i class="bi bi-house"></i> Dashboard</a>
+<a href="#"><i class="bi bi-person"></i> Personal Info</a>
+<a href="#"><i class="bi bi-briefcase"></i> Teaching Experience</a>
+<a href="#"><i class="bi bi-journal-bookmark"></i> Publications</a>
+<a href="#"><i class="bi bi-file-earmark-text"></i> Reports</a>
+<a href="#"><i class="bi bi-file-earmark-check"></i> Exam Duties</a>
+<a href="#"><i class="bi bi-stars"></i> Co-Curricular</a>
+<a href="#"><i class="bi bi-diagram-3"></i> Committee</a>
+<a href="#"><i class="bi bi-award"></i> Achievements</a>
 
-            <!-- Statistics Cards -->
-            <div class="row g-4 mb-4">
-                <div class="col-md-6 col-xl-3">
-                    <div class="custom-card p-4 d-flex justify-content-between align-items-center">
-                        <div>
-                            <p class="text-muted mb-1">Publications</p>
-                            <h3 class="fw-bold mb-0">42</h3>
-                        </div>
-                        <div class="stat-icon"><i class="bi bi-journal-text"></i></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="custom-card p-4 d-flex justify-content-between align-items-center">
-                        <div>
-                            <p class="text-muted mb-1">Patents</p>
-                            <h3 class="fw-bold mb-0">8</h3>
-                        </div>
-                        <div class="stat-icon"><i class="bi bi-lightbulb"></i></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="custom-card p-4 d-flex justify-content-between align-items-center">
-                        <div>
-                            <p class="text-muted mb-1">Projects</p>
-                            <h3 class="fw-bold mb-0">12</h3>
-                        </div>
-                        <div class="stat-icon"><i class="bi bi-kanban"></i></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="custom-card p-4 d-flex justify-content-between align-items-center">
-                        <div>
-                            <p class="text-muted mb-1">Awards</p>
-                            <h3 class="fw-bold mb-0">15</h3>
-                        </div>
-                        <div class="stat-icon"><i class="bi bi-trophy"></i></div>
-                    </div>
-                </div>
-            </div>
+</div>
 
-            <!-- Profile and Highlights -->
-            <div class="row g-4 mb-4">
-                <div class="col-lg-4">
-                    <div class="custom-card p-4 text-center">
-                        <img src="https://via.placeholder.com/120" class="profile-img mb-3" alt="Profile">
-                        <h5 class="fw-bold mb-1">Prof. John Doe</h5>
-                        <p class="text-muted mb-2">Associate Professor, Computer Engineering</p>
-                        <p class="small text-muted mb-0">Savitribai Phule Pune University</p>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="custom-card p-4">
-                        <h5 class="fw-bold mb-3">Research Highlights</h5>
-                        <ul class="mb-0">
-                            <li>Published 42 papers in reputed journals.</li>
-                            <li>Filed 8 patents in AI and IoT domains.</li>
-                            <li>Received ₹12 Lakhs in funded research projects.</li>
-                            <li>Delivered 25+ invited guest lectures.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<!-- MAIN CONTENT -->
+<div class="main-content">
 
-            <!-- Experience Timeline -->
-            <div class="custom-card p-4 mb-4">
-                <h5 class="fw-bold mb-4">Teaching Experience Timeline</h5>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h6 class="fw-semibold mb-1">2022 - Present</h6>
-                        <p class="text-muted mb-0">Associate Professor, Department of Computer Engineering</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h6 class="fw-semibold mb-1">2018 - 2022</h6>
-                        <p class="text-muted mb-0">Assistant Professor</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h6 class="fw-semibold mb-1">2015 - 2018</h6>
-                        <p class="text-muted mb-0">Lecturer</p>
-                    </div>
-                </div>
-            </div>
+<!-- TOP PROFILE -->
+<div class="row g-4">
 
-            <!-- Data Table -->
-            <div class="custom-card p-4 mb-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="fw-bold mb-0">Recent Publications</h5>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-sm btn-outline-primary">Edit</button>
-                        <button class="btn btn-sm btn-outline-danger">Delete</button>
-                    </div>
-                </div>
+<div class="col-lg-4">
+<div class="profile-card">
 
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th>Sr. No.</th>
-                                <th>Title</th>
-                                <th>Journal</th>
-                                <th>Year</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>AI Based Smart Agriculture</td>
-                                <td>IEEE Access</td>
-                                <td>2025</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>IoT Health Monitoring System</td>
-                                <td>Springer</td>
-                                <td>2024</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+<img src="https://i.pravatar.cc/150?img=12" alt="faculty">
 
-                <!-- Pagination -->
-                <nav class="mt-3">
-                    <ul class="pagination justify-content-end mb-0">
-                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
-            </div>
+<h4>Dr. Abhishek Sharma</h4>
+<p class="text-muted">Associate Professor, Computer Science</p>
+<span class="badge bg-primary">12+ Years Experience</span>
 
-            <!-- Certificate Gallery -->
-            <div class="custom-card p-4 mb-4">
-                <h5 class="fw-bold mb-4">Certificate Gallery</h5>
-                <div class="row g-3">
-                    <div class="col-6 col-md-3"><div class="gallery-item"><i class="bi bi-award"></i></div></div>
-                    <div class="col-6 col-md-3"><div class="gallery-item"><i class="bi bi-patch-check"></i></div></div>
-                    <div class="col-6 col-md-3"><div class="gallery-item"><i class="bi bi-file-earmark-medical"></i></div></div>
-                    <div class="col-6 col-md-3"><div class="gallery-item"><i class="bi bi-journal-bookmark"></i></div></div>
-                </div>
-            </div>
+</div>
+</div>
 
-            <!-- Empty State -->
-            <div class="custom-card p-5 text-center">
-                <i class="bi bi-folder-x display-4 text-muted"></i>
-                <h5 class="fw-bold mt-3">No Records Found</h5>
-                <p class="text-muted">Start by adding your first academic record.</p>
-                <button class="btn btn-primary"><i class="bi bi-plus-circle"></i> Add Record</button>
-            </div>
+<div class="col-lg-8">
+<div class="row g-4">
 
-            <!-- Footer -->
-            <footer class="site-footer text-center">
-                &copy; 2026 Faculty Profile Management System. All Rights Reserved.
-            </footer>
-        </main>
-    </div>
+<div class="col-md-4">
+<div class="stat-card">
+<i class="bi bi-journal-richtext"></i>
+<h3>48</h3>
+<p>Publications</p>
+</div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
+<div class="col-md-4">
+<div class="stat-card">
+<i class="bi bi-lightbulb"></i>
+<h3>12</h3>
+<p>Projects</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="stat-card">
+<i class="bi bi-award"></i>
+<h3>25</h3>
+<p>Awards</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- PERSONAL INFO -->
+<div class="section-card">
+<div class="section-header">
+<h4>Personal Information</h4>
+</div>
+
+<div class="row g-3">
+<div class="col-md-6"><strong>Email:</strong> abhishek.sharma@example.com</div>
+<div class="col-md-6"><strong>Location:</strong> Pune, Maharashtra</div>
+<div class="col-md-6"><strong>Department:</strong> Computer Science</div>
+<div class="col-md-6"><strong>Qualification:</strong> Ph.D</div>
+</div>
+</div>
+
+<!-- TEACHING EXPERIENCE -->
+<div class="section-card">
+<div class="section-header">
+<h4>Teaching Experience</h4>
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h6>Sunrise Engineering College</h6>
+<p>Assistant Professor (2013 - 2017)</p>
+</div>
+
+<div class="timeline-item">
+<h6>Global Technical University</h6>
+<p>Associate Professor (2018 - Present)</p>
+</div>
+
+<div class="timeline-item">
+<h6>National Institute of Technology</h6>
+<p>Guest Faculty (2021 - 2023)</p>
+</div>
+
+</div>
+</div>
+
+<!-- PUBLICATIONS -->
+<div class="section-card">
+<div class="section-header">
+<h4>Publication of Reports / Books / Journals</h4>
+</div>
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+<thead>
+<tr>
+<th>Sr.No</th>
+<th>Author</th>
+<th>Title</th>
+<th>Year</th>
+<th>Level</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td>Dr. A. Sharma</td>
+<td>Modern Data Science</td>
+<td>2022</td>
+<td>International</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Prof. R. Patil</td>
+<td>AI in Education</td>
+<td>2021</td>
+<td>National</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Dr. S. Mehta</td>
+<td>Cloud Computing Basics</td>
+<td>2023</td>
+<td>State</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- EXAM DUTIES -->
+<div class="section-card">
+<div class="section-header">
+<h4>University Exam Duties</h4>
+</div>
+
+<ul class="list-group">
+<li class="list-group-item">Paper Setter - ABC University</li>
+<li class="list-group-item">External Examiner - XYZ University</li>
+<li class="list-group-item">Invigilation Head - PQR University</li>
+</ul>
+</div>
+
+<!-- CO CURRICULAR -->
+<div class="section-card">
+<div class="section-header">
+<h4>Co-Curricular Activities</h4>
+</div>
+
+<ul class="list-group">
+<li class="list-group-item">National Seminar Coordinator</li>
+<li class="list-group-item">Hackathon Judge</li>
+<li class="list-group-item">Workshop on AI Trainer</li>
+</ul>
+</div>
+
+<!-- COMMITTEE -->
+<div class="section-card">
+<div class="section-header">
+<h4>Organizing Committee</h4>
+</div>
+
+<div class="info-box">
+<h6>International Conference on Data Science</h6>
+<p>Managed technical sessions and event planning.</p>
+</div>
+
+<div class="info-box">
+<h6>Research Methodology Workshop</h6>
+<p>Handled registrations and speaker coordination.</p>
+</div>
+
+</div>
+
+<!-- ACHIEVEMENTS -->
+<div class="section-card">
+<div class="section-header">
+<h4>Achievements</h4>
+</div>
+
+<ul class="list-group">
+<li class="list-group-item">15+ Research Papers Published</li>
+<li class="list-group-item">Certified Trainer in Python & AI</li>
+<li class="list-group-item">Guided 50+ Final Year Projects</li>
+<li class="list-group-item">Best Faculty Award 2022</li>
+</ul>
+</div>
+
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function toggleSidebar(){
+document.getElementById("sidebar").classList.toggle("active");
+}
+
+function toggleDarkMode(){
+document.body.classList.toggle("dark-mode");
+}
+</script>
+
 </body>
 </html>
-```
