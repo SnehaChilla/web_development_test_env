@@ -1,12 +1,9 @@
-# Complete Student Portfolio Website (Single index.html File)
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Portfolio</title>
+  <title>Faculty Portfolio Dashboard</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,13 +31,14 @@
       font-family:'Poppins',sans-serif;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       background:var(--bg);
       overflow-x:hidden;
-    }
-
-    html{
-      scroll-behavior:smooth;
+      color:#1f2937;
     }
 
     /* ================= NAVBAR ================= */
@@ -48,7 +46,7 @@
     .top-navbar{
       height:var(--topbar-height);
       background:linear-gradient(90deg,var(--primary),var(--primary-dark));
-      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      box-shadow:0 5px 20px rgba(0,0,0,0.08);
       z-index:1050;
     }
 
@@ -64,6 +62,20 @@
       background:transparent;
       color:white;
       font-size:1.6rem;
+    }
+
+    .dark-btn{
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:12px;
+      background:rgba(255,255,255,0.2);
+      color:#fff;
+      transition:0.3s;
+    }
+
+    .dark-btn:hover{
+      transform:scale(1.05);
     }
 
     /* ================= SIDEBAR ================= */
@@ -129,10 +141,10 @@
       display:flex;
       align-items:center;
       transition:0.3s;
+      gap:12px;
     }
 
     .sidebar-menu .nav-link i{
-      margin-right:12px;
       font-size:1.1rem;
     }
 
@@ -157,7 +169,7 @@
       min-height:100vh;
     }
 
-    /* ================= HERO SECTION ================= */
+    /* ================= HERO ================= */
 
     .hero-card{
       background:#fff;
@@ -225,7 +237,7 @@
       margin-bottom:20px;
     }
 
-    /* ================= TABLE SECTION ================= */
+    /* ================= SECTION ================= */
 
     .section-title{
       font-size:2rem;
@@ -248,6 +260,8 @@
       box-shadow:0 12px 30px rgba(0,0,0,0.08);
     }
 
+    /* ================= TABLE ================= */
+
     .table thead{
       background:#3B7597;
       color:#fff;
@@ -269,6 +283,48 @@
 
     .table td[contenteditable="true"]{
       outline:none;
+    }
+
+    /* ================= TIMELINE ================= */
+
+    .timeline{
+      border-left:4px solid var(--primary);
+      padding-left:25px;
+      margin-left:10px;
+    }
+
+    .timeline-item{
+      position:relative;
+      margin-bottom:30px;
+    }
+
+    .timeline-item::before{
+      content:'';
+      position:absolute;
+      width:16px;
+      height:16px;
+      background:var(--primary);
+      border-radius:50%;
+      left:-34px;
+      top:5px;
+    }
+
+    /* ================= GALLERY ================= */
+
+    .gallery-card{
+      overflow:hidden;
+      border-radius:20px;
+      transition:0.3s;
+    }
+
+    .gallery-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .gallery-card:hover{
+      transform:scale(1.03);
     }
 
     /* ================= CONTACT ================= */
@@ -300,6 +356,30 @@
       text-align:center;
       color:#fff;
       box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    /* ================= DARK MODE ================= */
+
+    .dark-mode{
+      background:#111827;
+      color:#fff;
+    }
+
+    .dark-mode .sidebar,
+    .dark-mode .card-box,
+    .dark-mode .hero-card,
+    .dark-mode .info-card{
+      background:#1f2937;
+      color:#fff;
+    }
+
+    .dark-mode .hero-text,
+    .dark-mode p{
+      color:#d1d5db !important;
+    }
+
+    .dark-mode .table{
+      color:#fff;
     }
 
     /* ================= RESPONSIVE ================= */
@@ -349,9 +429,15 @@
     <i class="bi bi-list"></i>
   </button>
 
-  <a class="navbar-brand mx-auto mx-lg-0" href="#">
-    PORTFOLIO
+  <a class="navbar-brand" href="#">
+    Faculty Portfolio
   </a>
+
+  <div class="ms-auto">
+    <button class="dark-btn" onclick="toggleDarkMode()">
+      <i class="bi bi-moon-stars-fill"></i>
+    </button>
+  </div>
 
 </nav>
 
@@ -377,7 +463,22 @@
 
     <a href="#home" class="nav-link active">
       <i class="bi bi-house-door-fill"></i>
-      Home
+      Dashboard
+    </a>
+
+    <a href="#education" class="nav-link">
+      <i class="bi bi-mortarboard-fill"></i>
+      Educational Qualification
+    </a>
+
+    <a href="#other" class="nav-link">
+      <i class="bi bi-patch-check-fill"></i>
+      Other Qualification
+    </a>
+
+    <a href="#experience" class="nav-link">
+      <i class="bi bi-briefcase-fill"></i>
+      Teaching Experience
     </a>
 
     <a href="#orientation" class="nav-link">
@@ -390,14 +491,54 @@
       FDP & Training
     </a>
 
+    <a href="#research" class="nav-link">
+      <i class="bi bi-lightbulb-fill"></i>
+      Research Projects
+    </a>
+
     <a href="#patents" class="nav-link">
       <i class="bi bi-shield-check"></i>
       Patents
     </a>
 
+    <a href="#publications" class="nav-link">
+      <i class="bi bi-journal-richtext"></i>
+      Publications
+    </a>
+
+    <a href="#conference" class="nav-link">
+      <i class="bi bi-people-fill"></i>
+      Conferences
+    </a>
+
     <a href="#awards" class="nav-link">
       <i class="bi bi-award-fill"></i>
       Awards
+    </a>
+
+    <a href="#guest" class="nav-link">
+      <i class="bi bi-mic-fill"></i>
+      Guest Lectures
+    </a>
+
+    <a href="#ict" class="nav-link">
+      <i class="bi bi-pc-display"></i>
+      ICT Work
+    </a>
+
+    <a href="#membership" class="nav-link">
+      <i class="bi bi-person-badge-fill"></i>
+      Memberships
+    </a>
+
+    <a href="#exam" class="nav-link">
+      <i class="bi bi-file-earmark-text-fill"></i>
+      Exam Duties
+    </a>
+
+    <a href="#activities" class="nav-link">
+      <i class="bi bi-stars"></i>
+      Co-Curricular Activities
     </a>
 
     <a href="#contact" class="nav-link">
@@ -426,12 +567,12 @@
     </h1>
 
     <p class="hero-text">
-      I am a student from the Department of Computer Science and Engineering specializing in Artificial Intelligence and Data Science. This portfolio showcases my orientation programs, FDP training, patents, awards, and academic achievements in a clean and professional dashboard layout.
+      I am a student from the Department of Computer Science and Engineering specializing in Artificial Intelligence and Data Science.
     </p>
 
   </section>
 
-  <!-- CARDS -->
+  <!-- INFO CARDS -->
 
   <div class="row g-4 mb-5">
 
@@ -663,46 +804,6 @@
 
       </div>
 
-      <div class="col-md-6 col-lg-4">
-
-        <div class="card-box h-100 text-center">
-
-          <i class="bi bi-trophy-fill"
-             style="font-size:55px;color:#3B7597;">
-          </i>
-
-          <h5 class="mt-3 fw-bold">
-            Research Excellence
-          </h5>
-
-          <p class="text-muted">
-            Awarded for innovation and research contribution.
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-
-        <div class="card-box h-100 text-center">
-
-          <i class="bi bi-stars"
-             style="font-size:55px;color:#3B7597;">
-          </i>
-
-          <h5 class="mt-3 fw-bold">
-            Academic Topper
-          </h5>
-
-          <p class="text-muted">
-            Recognized for excellent academic performance.
-          </p>
-
-        </div>
-
-      </div>
-
     </div>
 
   </section>
@@ -729,10 +830,6 @@
                  class="form-control mb-3"
                  placeholder="Your Email">
 
-          <input type="text"
-                 class="form-control mb-3"
-                 placeholder="Subject">
-
           <textarea class="form-control mb-3"
                     rows="5"
                     placeholder="Message"></textarea>
@@ -740,34 +837,6 @@
           <button class="btn btn-primary px-4">
             Send Message
           </button>
-
-        </div>
-
-        <div class="col-lg-6">
-
-          <div class="p-4 rounded-4"
-               style="background:#f5f8fb;">
-
-            <h5 class="fw-bold mb-3">
-              Contact Information
-            </h5>
-
-            <p>
-              <i class="bi bi-envelope-fill text-primary"></i>
-              bhumi@example.com
-            </p>
-
-            <p>
-              <i class="bi bi-telephone-fill text-primary"></i>
-              +91 9876543210
-            </p>
-
-            <p>
-              <i class="bi bi-geo-alt-fill text-primary"></i>
-              Solapur, Maharashtra
-            </p>
-
-          </div>
 
         </div>
 
@@ -810,8 +879,40 @@
 
   });
 
+  function toggleDarkMode(){
+    document.body.classList.toggle("dark-mode");
+  }
+
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".sidebar-menu .nav-link");
+
+  window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.clientHeight;
+
+      if(pageYOffset >= sectionTop){
+        current = section.getAttribute("id");
+      }
+
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+
+      if(link.getAttribute("href") === "#" + current){
+        link.classList.add("active");
+      }
+
+    });
+
+  });
+
 </script>
 
 </body>
 </html>
-
