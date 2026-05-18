@@ -1,267 +1,1269 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Faculty Portfolio</title>
 
-<!-- Bootstrap 5 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Faculty Portfolio | Dr. Priya Sharma</title>
 
-<!-- External CSS -->
-<link rel="stylesheet" href="main.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-<div class="container-fluid">
+    <!-- Navbar -->
+    <div id="sidebar-container"></div>
 
-<button class="btn btn-light d-lg-none me-3" onclick="toggleSidebar()">
-<i class="bi bi-list"></i>
-</button>
+    <!-- Main -->
+    <main class="main-content">
 
-<a class="navbar-brand" href="#">Faculty<span>Portfolio</span></a>
+        <!-- HERO -->
+       <section class="hero-section d-flex align-items-center" id="home">
 
-<div class="ms-auto d-flex align-items-center gap-3">
-<button class="btn btn-light" onclick="toggleDarkMode()">
-<i class="bi bi-moon-stars"></i>
-</button>
+    <div class="container">
 
-<img src="https://i.pravatar.cc/40?img=12" class="rounded-circle" alt="profile">
-</div>
+        <div class="row align-items-center">
 
-</div>
-</nav>
+            <!-- TEXT -->
+            <div class="col-lg-7 text-white">
 
-<!-- SIDEBAR -->
-<div class="sidebar" id="sidebar">
+                <span class="hero-badge">Faculty Portfolio</span>
 
-<a href="#"><i class="bi bi-house"></i> Dashboard</a>
-<a href="#"><i class="bi bi-person"></i> Personal Info</a>
-<a href="#"><i class="bi bi-briefcase"></i> Teaching Experience</a>
-<a href="#"><i class="bi bi-journal-bookmark"></i> Publications</a>
-<a href="#"><i class="bi bi-file-earmark-text"></i> Reports</a>
-<a href="#"><i class="bi bi-file-earmark-check"></i> Exam Duties</a>
-<a href="#"><i class="bi bi-stars"></i> Co-Curricular</a>
-<a href="#"><i class="bi bi-diagram-3"></i> Committee</a>
-<a href="#"><i class="bi bi-award"></i> Achievements</a>
+                <h1 class="mt-3">Dr. Priya Sharma</h1>
 
-</div>
+                <h3>Associate Professor</h3>
 
-<!-- MAIN CONTENT -->
-<div class="main-content">
+                <p class="hero-desc">
+                    Department of Computer Science with 12+ years of teaching,
+                    research and academic excellence.
+                </p>
 
-<!-- TOP PROFILE -->
-<div class="row g-4">
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-gradient">
+                        <i class="bi bi-download"></i> Download CV
+                    </a>
 
-<div class="col-lg-4">
-<div class="profile-card">
+                    <a href="#contact" class="btn btn-light-custom">
+                        <i class="bi bi-envelope"></i> Contact
+                    </a>
+                </div>
 
-<img src="https://i.pravatar.cc/150?img=12" alt="faculty">
+            </div>
 
-<h4>Dr. Abhishek Sharma</h4>
-<p class="text-muted">Associate Professor, Computer Science</p>
-<span class="badge bg-primary">12+ Years Experience</span>
+            <!-- PROFILE IMAGE (HOME DASHBOARD) -->
+            <div class="col-lg-5 text-center">
 
-</div>
-</div>
+                <div class="profile-box">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+                         alt="Profile Picture"
+                         class="profile-img">
+                </div>
 
-<div class="col-lg-8">
-<div class="row g-4">
+            </div>
 
-<div class="col-md-4">
-<div class="stat-card">
-<i class="bi bi-journal-richtext"></i>
-<h3>48</h3>
-<p>Publications</p>
-</div>
-</div>
+        </div>
 
-<div class="col-md-4">
-<div class="stat-card">
-<i class="bi bi-lightbulb"></i>
-<h3>12</h3>
-<p>Projects</p>
-</div>
-</div>
+    </div>
 
-<div class="col-md-4">
-<div class="stat-card">
-<i class="bi bi-award"></i>
-<h3>25</h3>
-<p>Awards</p>
-</div>
-</div>
+</section>
+        
+        
 
-</div>
-</div>
+        <!-- EDUCATION -->
+        <section class="section-padding" id="education">
 
-</div>
+            <div class="container">
 
-<!-- PERSONAL INFO -->
-<div class="section-card">
-<div class="section-header">
-<h4>Personal Information</h4>
-</div>
+                <div class="section-title">
+                    <h2>
+                        <i class="bi bi-mortarboard-fill"></i>
+                        Educational Qualification
+                    </h2>
+                </div>
 
-<div class="row g-3">
-<div class="col-md-6"><strong>Email:</strong> abhishek.sharma@example.com</div>
-<div class="col-md-6"><strong>Location:</strong> Pune, Maharashtra</div>
-<div class="col-md-6"><strong>Department:</strong> Computer Science</div>
-<div class="col-md-6"><strong>Qualification:</strong> Ph.D</div>
-</div>
-</div>
+                <div class="table-responsive custom-table">
 
-<!-- TEACHING EXPERIENCE -->
-<div class="section-card">
-<div class="section-header">
-<h4>Teaching Experience</h4>
-</div>
+                    <table class="table table-hover">
 
-<div class="timeline">
+                        <thead>
 
-<div class="timeline-item">
-<h6>Sunrise Engineering College</h6>
-<p>Assistant Professor (2013 - 2017)</p>
-</div>
+                            <tr>
+                                <th>Degree</th>
+                                <th>University</th>
+                                <th>Year</th>
+                                <th>Percentage</th>
+                            </tr>
 
-<div class="timeline-item">
-<h6>Global Technical University</h6>
-<p>Associate Professor (2018 - Present)</p>
-</div>
+                        </thead>
 
-<div class="timeline-item">
-<h6>National Institute of Technology</h6>
-<p>Guest Faculty (2021 - 2023)</p>
-</div>
+                        <tbody>
 
-</div>
-</div>
+                            <tr>
+                                <td>Ph.D Computer Science</td>
+                                <td>IIT Bombay</td>
+                                <td>2015</td>
+                                <td>88%</td>
+                            </tr>
 
-<!-- PUBLICATIONS -->
-<div class="section-card">
-<div class="section-header">
-<h4>Publication of Reports / Books / Journals</h4>
-</div>
+                            <tr>
+                                <td>M.Tech</td>
+                                <td>Pune University</td>
+                                <td>2010</td>
+                                <td>84%</td>
+                            </tr>
 
-<div class="table-responsive">
-<table class="table table-bordered table-hover">
-<thead>
-<tr>
-<th>Sr.No</th>
-<th>Author</th>
-<th>Title</th>
-<th>Year</th>
-<th>Level</th>
-</tr>
-</thead>
+                            <tr>
+                                <td>B.E Computer Engineering</td>
+                                <td>COEP Pune</td>
+                                <td>2008</td>
+                                <td>81%</td>
+                            </tr>
 
-<tbody>
-<tr>
-<td>1</td>
-<td>Dr. A. Sharma</td>
-<td>Modern Data Science</td>
-<td>2022</td>
-<td>International</td>
-</tr>
+                            <tr>
+                                <td>HSC</td>
+                                <td>Maharashtra Board</td>
+                                <td>2004</td>
+                                <td>78%</td>
+                            </tr>
 
-<tr>
-<td>2</td>
-<td>Prof. R. Patil</td>
-<td>AI in Education</td>
-<td>2021</td>
-<td>National</td>
-</tr>
+                        </tbody>
 
-<tr>
-<td>3</td>
-<td>Dr. S. Mehta</td>
-<td>Cloud Computing Basics</td>
-<td>2023</td>
-<td>State</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+                    </table>
 
-<!-- EXAM DUTIES -->
-<div class="section-card">
-<div class="section-header">
-<h4>University Exam Duties</h4>
-</div>
+                </div>
 
-<ul class="list-group">
-<li class="list-group-item">Paper Setter - ABC University</li>
-<li class="list-group-item">External Examiner - XYZ University</li>
-<li class="list-group-item">Invigilation Head - PQR University</li>
-</ul>
-</div>
+            </div>
 
-<!-- CO CURRICULAR -->
-<div class="section-card">
-<div class="section-header">
-<h4>Co-Curricular Activities</h4>
-</div>
+        </section>
 
-<ul class="list-group">
-<li class="list-group-item">National Seminar Coordinator</li>
-<li class="list-group-item">Hackathon Judge</li>
-<li class="list-group-item">Workshop on AI Trainer</li>
-</ul>
-</div>
+        <!-- OTHER QUALIFICATION -->
+        <section class="section-padding bg-light-custom" id="otherqualification">
 
-<!-- COMMITTEE -->
-<div class="section-card">
-<div class="section-header">
-<h4>Organizing Committee</h4>
-</div>
+            <div class="container">
 
-<div class="info-box">
-<h6>International Conference on Data Science</h6>
-<p>Managed technical sessions and event planning.</p>
-</div>
+                <div class="section-title">
 
-<div class="info-box">
-<h6>Research Methodology Workshop</h6>
-<p>Handled registrations and speaker coordination.</p>
-</div>
+                    <h2>
+                        <i class="bi bi-patch-check-fill"></i>
+                        Other Qualification
+                    </h2>
 
-</div>
+                </div>
 
-<!-- ACHIEVEMENTS -->
-<div class="section-card">
-<div class="section-header">
-<h4>Achievements</h4>
-</div>
+                <div class="row g-4">
 
-<ul class="list-group">
-<li class="list-group-item">15+ Research Papers Published</li>
-<li class="list-group-item">Certified Trainer in Python & AI</li>
-<li class="list-group-item">Guided 50+ Final Year Projects</li>
-<li class="list-group-item">Best Faculty Award 2022</li>
-</ul>
-</div>
+                    <div class="col-md-4">
 
-</div>
+                        <div class="glass-card">
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                            <h5>NPTEL Certification</h5>
 
-<script>
-function toggleSidebar(){
-document.getElementById("sidebar").classList.toggle("active");
-}
+                            <p>
+                                Cloud Computing - Elite + Silver
+                            </p>
 
-function toggleDarkMode(){
-document.body.classList.toggle("dark-mode");
-}
-</script>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="glass-card">
+
+                            <h5>Google Certification</h5>
+
+                            <p>
+                                Google Data Analytics Professional
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="glass-card">
+
+                            <h5>IBM Certification</h5>
+
+                            <p>
+                                Artificial Intelligence Foundation
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TEACHING -->
+        <section class="section-padding" id="teaching">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-briefcase-fill"></i>
+                        Teaching Experience
+                    </h2>
+
+                </div>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-content">
+
+                            <h5>Sunrise Engineering College</h5>
+
+                            <span class="badge bg-primary">
+                                2012 - 2015
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-content">
+
+                            <h5>Modern Science College</h5>
+
+                            <span class="badge bg-success">
+                                2016 - Present
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ORIENTATION -->
+        <section class="section-padding bg-light-custom" id="orientation">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-journal-bookmark-fill"></i>
+                        Orientation / Refresher Courses
+                    </h2>
+
+                </div>
+
+                <div class="table-responsive custom-table">
+
+                    <table class="table table-hover">
+
+                        <thead>
+
+                            <tr>
+                                <th>Course</th>
+                                <th>Institute</th>
+                                <th>Duration</th>
+                                <th>Year</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Research Methodology</td>
+                                <td>IIT Bombay</td>
+                                <td>2 Weeks</td>
+                                <td>2022</td>
+                            </tr>
+
+                            <tr>
+                                <td>AI in Education</td>
+                                <td>NPTEL</td>
+                                <td>1 Month</td>
+                                <td>2023</td>
+                            </tr>
+
+                            <tr>
+                                <td>Cyber Security</td>
+                                <td>Infosys Springboard</td>
+                                <td>15 Days</td>
+                                <td>2024</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FDP -->
+        <section class="section-padding" id="fdp">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-laptop-fill"></i>
+                        FDP & Training Programs
+                    </h2>
+
+                </div>
+
+                <div class="table-responsive custom-table">
+
+                    <table class="table table-hover">
+
+                        <thead>
+
+                            <tr>
+                                <th>Program</th>
+                                <th>Organization</th>
+                                <th>Duration</th>
+                                <th>Year</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Cloud Computing FDP</td>
+                                <td>Google</td>
+                                <td>5 Days</td>
+                                <td>2022</td>
+                            </tr>
+
+                            <tr>
+                                <td>Machine Learning Workshop</td>
+                                <td>IBM</td>
+                                <td>7 Days</td>
+                                <td>2023</td>
+                            </tr>
+
+                            <tr>
+                                <td>Python Training</td>
+                                <td>Infosys</td>
+                                <td>10 Days</td>
+                                <td>2024</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Research Projects -->
+<section class="section-padding bg-light-custom" id="research">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>
+                <i class="bi bi-diagram-3-fill"></i>
+                Research Projects
+            </h2>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Project 1 -->
+            <div class="col-lg-6">
+
+                <div class="research-card">
+
+                    <h4>AI Based Learning System</h4>
+
+                    <p>
+                        <strong>Funding Agency :</strong>
+                        UGC
+                    </p>
+
+                    <p>
+                        <strong>Duration :</strong>
+                        2022 - 2024
+                    </p>
+
+                    <p>
+                        <strong>Role :</strong>
+                        Principal Investigator
+                    </p>
+
+                    <p>
+                        <strong>Description :</strong>
+                        Developed an intelligent AI based student
+                        learning and performance prediction system.
+                    </p>
+
+                    <span class="badge bg-success">
+                        Ongoing
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-lg-6">
+
+                <div class="research-card">
+
+                    <h4>Smart Campus Analytics</h4>
+
+                    <p>
+                        <strong>Funding Agency :</strong>
+                        AICTE
+                    </p>
+
+                    <p>
+                        <strong>Duration :</strong>
+                        2020 - 2022
+                    </p>
+
+                    <p>
+                        <strong>Role :</strong>
+                        Co-Investigator
+                    </p>
+
+                    <p>
+                        <strong>Description :</strong>
+                        Smart monitoring and analytics platform
+                        for educational institutions using IoT.
+                    </p>
+
+                    <span class="badge bg-primary">
+                        Completed
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-lg-6">
+
+                <div class="research-card">
+
+                    <h4>Machine Learning for Healthcare</h4>
+
+                    <p>
+                        <strong>Funding Agency :</strong>
+                        DST India
+                    </p>
+
+                    <p>
+                        <strong>Duration :</strong>
+                        2019 - 2021
+                    </p>
+
+                    <p>
+                        <strong>Role :</strong>
+                        Research Coordinator
+                    </p>
+
+                    <p>
+                        <strong>Description :</strong>
+                        Disease prediction system using machine
+                        learning and data analytics techniques.
+                    </p>
+
+                    <span class="badge bg-primary">
+                        Completed
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-lg-6">
+
+                <div class="research-card">
+
+                    <h4>Cloud Based E-Learning Platform</h4>
+
+                    <p>
+                        <strong>Funding Agency :</strong>
+                        Infosys Foundation
+                    </p>
+
+                    <p>
+                        <strong>Duration :</strong>
+                        2023 - 2025
+                    </p>
+
+                    <p>
+                        <strong>Role :</strong>
+                        Project Head
+                    </p>
+
+                    <p>
+                        <strong>Description :</strong>
+                        Developed scalable cloud based online
+                        learning management platform for colleges.
+                    </p>
+
+                    <span class="badge bg-success">
+                        Ongoing
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="section-padding" id="patents">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2><i class="bi bi-file-earmark-medical-fill"></i> Patents</h2>
+        </div>
+
+        <div class="table-responsive custom-table">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Patent Title</th>
+                        <th>Patent Number</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>AI Based Attendance System</td>
+                        <td>IN2024012345</td>
+                        <td>2024</td>
+                        <td>Published</td>
+                    </tr>
+
+                    <tr>
+                        <td>Smart Exam Monitoring System</td>
+                        <td>IN2023123456</td>
+                        <td>2023</td>
+                        <td>Granted</td>
+                    </tr>
+
+                    <tr>
+                        <td>IoT Based Campus Security System</td>
+                        <td>IN2022111122</td>
+                        <td>2022</td>
+                        <td>Published</td>
+                    </tr>
+
+                    <tr>
+                        <td>AI Disease Prediction Model</td>
+                        <td>IN2022019988</td>
+                        <td>2021</td>
+                        <td>Under Review</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="section-padding bg-light-custom" id="publications">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2><i class="bi bi-book-fill"></i> Publications</h2>
+        </div>
+
+        <div class="accordion" id="publicationAccordion">
+
+            <!-- BOOKS -->
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#books">
+                        Books
+                    </button>
+                </h2>
+
+                <div id="books" class="accordion-collapse collapse show">
+
+                    <div class="accordion-body">
+
+                        <table class="table">
+
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Publisher</th>
+                                    <th>ISBN</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Modern Artificial Intelligence</td>
+                                    <td>Pearson</td>
+                                    <td>978-1122334455</td>
+                                    <td>2023</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Data Science Fundamentals</td>
+                                    <td>McGraw Hill</td>
+                                    <td>978-9988776655</td>
+                                    <td>2022</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Machine Learning Concepts</td>
+                                    <td>Wiley</td>
+                                    <td>978-5544332211</td>
+                                    <td>2021</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RESEARCH PAPERS -->
+            <div class="accordion-item mt-3">
+
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#papers">
+                        Research Papers
+                    </button>
+                </h2>
+
+                <div id="papers" class="accordion-collapse collapse">
+
+                    <div class="accordion-body">
+
+                        <table class="table">
+
+                            <thead>
+                                <tr>
+                                    <th>Paper Title</th>
+                                    <th>Journal</th>
+                                    <th>ISSN</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>AI in Smart Education Systems</td>
+                                    <td>IEEE Access</td>
+                                    <td>1234-5678</td>
+                                    <td>2024</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Deep Learning for Healthcare</td>
+                                    <td>Springer Journal</td>
+                                    <td>2345-6789</td>
+                                    <td>2023</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Cloud Computing Security</td>
+                                    <td>Elsevier</td>
+                                    <td>3456-7890</td>
+                                    <td>2022</td>
+                                </tr>
+
+                                <tr>
+                                    <td>IoT Based Smart Campus</td>
+                                    <td>International Journal of AI</td>
+                                    <td>4567-8901</td>
+                                    <td>2021</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- NSS -->
+        <section class="section-padding bg-light-custom" id="nss">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-people-fill"></i>
+                        NSS Activities
+                    </h2>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+
+                        <div class="nss-card">
+
+                            <i class="bi bi-tree-fill"></i>
+
+                            <h5>Tree Plantation</h5>
+
+                            <p>
+                                Organized environmental awareness drives.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="nss-card">
+
+                            <i class="bi bi-heart-pulse-fill"></i>
+
+                            <h5>Health Camps</h5>
+
+                            <p>
+                                Conducted blood donation & health camps.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="nss-card">
+
+                            <i class="bi bi-flag-fill"></i>
+
+                            <h5>Social Activities</h5>
+
+                            <p>
+                                Participated in Swachh Bharat Abhiyan.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- GUEST LECTURES -->
+        <section class="section-padding" id="guestlectures">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-mic-fill"></i>
+                        Guest Lectures
+                    </h2>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <div class="glass-card">
+
+                            <h5>AI Workshop</h5>
+
+                            <p>
+                                Delivered lecture at IIT Bombay.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="glass-card">
+
+                            <h5>Cyber Security Seminar</h5>
+
+                            <p>
+                                Guest speaker at Pune University.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ICT -->
+        <section class="section-padding bg-light-custom" id="ict">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-camera-video-fill"></i>
+                        ICT Based Work
+                    </h2>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <div class="glass-card">
+
+                            <h5>E-Content Development</h5>
+
+                            <p>
+                                Created video lectures and smart study material.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="glass-card">
+
+                            <h5>Google Classroom</h5>
+
+                            <p>
+                                Conducted online classes using LMS.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- MEMBERSHIPS -->
+        <section class="section-padding" id="memberships">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-person-badge-fill"></i>
+                        Memberships
+                    </h2>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+
+                        <div class="achievement-card">
+
+                            <h4>IEEE</h4>
+
+                            <p>Professional Member</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="achievement-card">
+
+                            <h4>ISTE</h4>
+
+                            <p>Lifetime Member</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="achievement-card">
+
+                            <h4>CSI</h4>
+
+                            <p>Active Member</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- EXAM DUTIES -->
+        <section class="section-padding bg-light-custom" id="examduties">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        University Exam Duties
+                    </h2>
+
+                </div>
+
+                <div class="table-responsive custom-table">
+
+                    <table class="table table-hover">
+
+                        <thead>
+
+                            <tr>
+                                <th>Duty</th>
+                                <th>University</th>
+                                <th>Year</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Paper Setter</td>
+                                <td>Pune University</td>
+                                <td>2024</td>
+                            </tr>
+
+                            <tr>
+                                <td>External Examiner</td>
+                                <td>DBATU</td>
+                                <td>2023</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- AWARDS & ACHIEVEMENTS -->
+<section class="section-padding bg-light-custom" id="awards">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                <i class="bi bi-trophy-fill"></i>
+                Awards & Achievements
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="achievement-card">
+
+                    <i class="bi bi-award-fill"></i>
+
+                    <h3>Best Teacher Award</h3>
+
+                    <p>
+                        Received Best Teacher Award from Modern Science College in 2022.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="achievement-card">
+
+                    <i class="bi bi-patch-check-fill"></i>
+
+                    <h3>25+ Publications</h3>
+
+                    <p>
+                        Published research papers in IEEE, Springer and Scopus journals.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="achievement-card">
+
+                    <i class="bi bi-stars"></i>
+
+                    <h3>Research Excellence</h3>
+
+                    <p>
+                        Honored for outstanding contribution in AI & Machine Learning research.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- CO CURRICULAR -->
+        <section class="section-padding" id="cocurricular">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-stars"></i>
+                        Co-Curricular Activities
+                    </h2>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+
+                        <div class="glass-card">
+
+                            <h5>Cultural Coordinator</h5>
+
+                            <p>
+                                Organized annual cultural events.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="glass-card">
+
+                            <h5>Hackathon Mentor</h5>
+
+                            <p>
+                                Guided students for hackathons.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="glass-card">
+
+                            <h5>Sports Committee</h5>
+
+                            <p>
+                                Managed inter-college sports activities.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section-padding bg-light-custom" id="contact">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <h2>
+                        <i class="bi bi-envelope-fill"></i>
+                        Contact
+                    </h2>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+
+                        <div class="contact-info-card">
+
+                            <i class="bi bi-envelope-fill"></i>
+
+                            <h5>Email</h5>
+
+                            <p>priya.sharma@gmail.com</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="contact-info-card">
+
+                            <i class="bi bi-telephone-fill"></i>
+
+                            <h5>Phone</h5>
+
+                            <p>+91 9876543210</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="contact-info-card">
+
+                            <i class="bi bi-geo-alt-fill"></i>
+
+                            <h5>Location</h5>
+
+                            <p>Pune, Maharashtra</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+
+            <div class="container text-center">
+
+                <h4>
+                    Dr. Priya Sharma
+                </h4>
+
+                <p>
+                    Associate Professor | Department of Computer Science
+                </p>
+
+                <hr>
+
+                <p>
+                    © 2026 Faculty Portfolio. All Rights Reserved.
+                </p>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+    <!-- Scroll Button -->
+    <button id="scrollTopBtn">
+
+        <i class="bi bi-arrow-up"></i>
+
+    </button>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>
